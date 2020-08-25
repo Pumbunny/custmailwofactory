@@ -10,13 +10,22 @@ package customermailapplication;
  * @author GP63
  */
 public class CustomerFactory {
+
+    /**
+     * @param args the command line arguments
+     */
+    private Customer customer;
     public static Customer createCustomer(String type) {             
-        if(type.equals("Regular"))
-            return new RegularCustomer();
-        else if(type.equals("Mountain"))
-            return new MountainCustomer();
-        else if(type.equals("Delinquent"))
-            return new DelinquentCustomer();
+        switch (type) {
+            case "Regular":
+                return new RegularCustomer();
+            case "Mountain":
+                return new MountainCustomer();
+            case "Delinquent":
+                return new DelinquentCustomer();
+            default:
+                break;
+        }
         return null;
     }
 }
